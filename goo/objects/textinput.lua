@@ -193,7 +193,7 @@ function goo.textinput:setText( text )
 		self.caretPos = str:len()+1
 	else
 		local count = 1
-		for line in string.match( text, '(.*)\n' ) do
+		for line in string.gmatch(text .. "\n", "([^\n]+)") do
 			self.lines[ count ] = line
 			count = count + 1
 		end
